@@ -2,8 +2,8 @@
 
 namespace App\Domain\Repositories;
 
+use App\Domain\Models\Workspace;
 use App\Domain\Repositories\BaseRepository;
-use App\Domain\Workspace\Workspace;
 use Illuminate\Database\Eloquent\Collection;
 
 class WorkspaceRepository extends BaseRepository

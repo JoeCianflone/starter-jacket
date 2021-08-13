@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Domain\Scopes;
+namespace App\Domain\Traits;
 
 trait Searchable
 {
