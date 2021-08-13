@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 return [
 
@@ -14,7 +14,7 @@ return [
     */
 
     'paths' => [
-        resource_path('views'),
+        resource_path('blade'),
     ],
 
     /*

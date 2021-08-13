@@ -1,0 +1,100 @@
+@use 'sass:math';
+
+.grid {
+   display: grid;
+   gap: var(--px-16);
+   grid-template-columns: repeat($grid-cols, minmax(0, 1fr));
+   height: 100%;
+   margin-bottom: var(--px-16);
+   width: auto;
+
+   @include with('auto') {
+      height: auto;
+   }
+
+   @include with('full') {
+      align-content: stretch;
+   }
+
+   @include with('top') {
+      align-content: flex-start;
+   }
+
+   @include with('middle') {
+      align-content: center;
+   }
+
+   @include with('bottom') {
+      align-content: flex-end;
+   }
+
+   @include with('centered') {
+      // this doesn't do anything, I'm leaving it here
+      // so that way people know it's part of the
+      // grids API. See `.span` to see how
+      // this is being used....
+
+      // since this doesn't do anything
+      // this will get compiled out
+      // so don't worry about it
+   }
+}
+
+// why would someone have 3 or 7 columns? I have
+// no idea, but it's silly to not support it?
+$max-centered-cols: $grid-cols - 2;
+
+@if ($grid-cols % 2 != 0) {
+   $max-centered-cols: $grid-cols - 1;
+}
+
+@for $count from $grid-cols through 0 {
+   @if($count > 0){
+      .span {
+         @include with-queries {
+            @include with($count) {
+               grid-column: span #{$count} / span #{$count};
+
+               @if ($count % 2 == 0 and $count <= $max-centered-cols) {
+                  @include when('grid:centered') {
+                     $start: math.div(($grid-cols - $count), 2) + 1;
+                     grid-column: #{$start} / span #{$count};
+                  }
+               }
+            }
+         }
+      }
+   }
+
+   .col {
+      @extend %col;
+
+      @include with-queries {
+         @include col($count);
+
+         @include with('left') {
+            text-align: left;
+         }
+
+         @include with('center') {
+            text-align: center;
+         }
+
+         @include with('right') {
+            text-align: right;
+         }
+
+         @include with('top') {
+            justify-content: flex-start;
+         }
+
+         @include with('middle') {
+            justify-content: center;
+         }
+
+         @include with('bottom') {
+            justify-content: end;
+         }
+      }
+   }
+}

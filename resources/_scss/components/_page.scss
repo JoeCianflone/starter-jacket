@@ -1,0 +1,56 @@
+@at-root {
+   @-ms-viewport {
+      width: device-width;
+   }
+}
+
+* {
+   box-sizing: inherit;
+   -webkit-overflow-scrolling: touch;
+
+   &::before,
+   &::after {
+      box-sizing: inherit;
+   }
+}
+
+
+:focus {
+   outline: none;
+}
+
+::selection {
+   background-color: var(--color-blue-200);
+   color: var(--color-true-black);
+   text-shadow: none;
+}
+
+html {
+   background-color: var(--color-true-white);
+   box-sizing: border-box;
+   display: flex;
+   min-height: 100%;
+   overflow: hidden;
+   -ms-overflow-style: scrollbar;
+   overflow-y: auto;
+   -webkit-tap-highlight-color: rgba(var(--color-true-black), 0);
+   -ms-text-size-adjust: 100%;
+}
+
+body {
+   background: var(--color-coolGray-100);
+   color: var(--color-blueGray-800);
+   font-family: var(--font-body);
+   /* stylelint-disable  declaration-no-important */
+   -moz-osx-font-smoothing: grayscale !important;
+   -webkit-font-smoothing: antialiased !important;
+   /* stylelint-enable  declaration-no-important */
+   font-weight: var(--weight-regular);
+   line-height: var(--leading-normal);
+   margin: var(--px-0);
+   min-height: 100vh;
+   min-width: $browser-min-size;
+   padding: var(--px-0);
+   text-align: left;
+   width: 100vw;
+}
