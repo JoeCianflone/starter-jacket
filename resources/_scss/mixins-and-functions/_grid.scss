@@ -1,0 +1,27 @@
+%col {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   position: relative;
+   width: 100%;
+}
+
+@mixin span($count, $direction: column) {
+   display: flex;
+   flex-direction: $direction;
+   grid-column: span #{$count} / span #{$count};
+   height: 100%;
+   position: relative;
+   width: 100%;
+}
+
+@mixin col($start: 0) {
+   @if ($start != 0) {
+      @include with($start) {
+        @extend %col;
+         /* stylelint-disable  declaration-no-important */
+         grid-column-start: $start !important;
+         /* stylelint-enable  declaration-no-important */
+      }
+   }
+}

@@ -1,0 +1,22 @@
+@mixin when-parent($parent-selector, $child: &) {
+   $parent-selector: str-replace($parent-selector, ':', '\\:');
+
+   @at-root {
+      #{$parent-selector} #{$child} {
+         @extend #{$child};
+         @content;
+      }
+   }
+}
+
+@mixin with-element($element-selector, $parent: &) {
+  @at-root #{$parent}#{$element-separator}#{$element-selector} {
+    @content;
+  }
+}
+
+@mixin with-modifier($modifier-selector, $parent: &) {
+  @at-root #{$parent}#{$modifier-separator}#{$modifier-selector} {
+    @content;
+  }
+}

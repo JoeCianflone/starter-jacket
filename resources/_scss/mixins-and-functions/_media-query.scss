@@ -1,0 +1,18 @@
+@mixin with-queries ($parent: &) {
+   $first: true;
+
+   @if ($first == true) {
+      @content;
+      $first: false;
+   }
+
+   @each $key, $value in $mq {
+      $name: str-slice(#{$parent}, 2);
+
+      @media ($value) {
+         @at-root {
+            .#{$key}\:\:#{$name} { @content; }
+         }
+      }
+   }
+}

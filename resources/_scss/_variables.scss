@@ -1,0 +1,135 @@
+:root {
+   --font-system: -apple-system, blinkmacsystemfont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+   --font-display: 'Open Sans', -apple-system, blinkmacsystemfont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+   --font-body: 'Source Sans Pro', -apple-system, blinkmacsystemfont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+   --letters-tightest: -0.1em;
+   --letters-tighter: -0.05em;
+   --letters-tight: -0.025em;
+   --letters-normal: 0;
+   --letters-wide: 0.025em;
+   --letters-wider: 0.05em;
+   --letters-widest: 0.1em;
+
+   --lines-none: 1;
+   --lines-tight: 1.25;
+   --lines-snug: 1.375;
+   --lines-normal: 1.5;
+   --lines-relaxed: 1.625;
+   --lines-loose: 2;
+
+   --percent-25: 25%;
+   --percent-33: 33%;
+   --percent-50: 50%;
+   --percent-66: 66%;
+   --percent-75: 75%;
+   --percent-100: 100%;
+
+   --px-0: 0;
+   --px-1: #{rem(1px)};
+   --px-2: #{rem(2px)};
+   --px-3: #{rem(3px)};
+   --px-4: #{rem(4px)};
+   --px-5: #{rem(5px)};
+
+   --px-8: #{rem(8px)};
+   --px-10: #{rem(10px)};
+   --px-12: #{rem(12px)};
+   --px-14: #{rem(14px)};
+   --px-16: #{rem(16px)};
+   --px-18: #{rem(18px)};
+   --px-20: #{rem(20px)};
+   --px-24: #{rem(24px)};
+   --px-28: #{rem(28px)};
+   --px-30: #{rem(30px)};
+   --px-32: #{rem(32px)};
+   --px-36: #{rem(36px)};
+   --px-40: #{rem(40px)};
+   --px-48: #{rem(48px)};
+   --px-60: #{rem(60px)};
+   --px-64: #{rem(64px)};
+   --px-72: #{rem(72px)};
+   --px-80: #{rem(80px)};
+   --px-96: #{rem(96px)};
+   --px-128: #{rem(128px)};
+   --px-160: #{rem(160px)};
+   --px-192: #{rem(192px)};
+   --px-224: #{rem(224px)};
+   --px-256: #{rem(256px)};
+
+   --weight-100: 100;
+   --weight-200: 200;
+   --weight-300: 300;
+   --weight-400: 400;
+   --weight-500: 500;
+   --weight-600: 600;
+   --weight-700: 700;
+   --weight-800: 800;
+   --weight-900: 900;
+
+   --color-true-black: #000;
+   --color-true-white: #fff;
+
+   // Generated from http://colormind.io/bootstrap/
+
+   // Use this color as the background for your dark-on-light designs,
+   // or the text color of an inverted design
+   --color-light-shade: #F9F8F7;
+
+   // Accent colors can be used to bring attention to design elements
+   // by contrasting with the rest of the palette.
+   --color-light-accent: #B66B63;
+
+   // This color should be eye-catching but not harsh. It can be liberally
+   // applied to your layout as its main identity.
+   --color-main-brand: #8D9397;
+
+   // Another accent color to consider. Not all colors have to be used - sometimes
+   // a simple color scheme works best.
+   --color-dark-accent: #796967;
+
+   // Use as the text color for dark-on-light designs, or as the
+   // background for inverted designs.
+   --color-dark-shade: #37393D;
+
+   --color-main: var(--color-main-brand);
+   --color-info: var(--color-dark-shade);
+
+   // These colors should probably not be replaced in general
+   --color-success: #60a765;
+   --color-warning: #dd972d;
+   --color-danger: #f44336;
+
+}
+
+// Why CSS Variables AND Sass Variables?
+// Because there are some things that
+// CSS variables cannot do alone
+// lists, looping and being
+// used in @media are not
+// supported so we just
+// default to scss
+$mq: (
+   'xs': #{'min-width: 480px'},
+   'sm': #{'min-width: 576px'},
+   'md': #{'min-width: 768px'},
+   'wd': #{'min-width: 900px'},
+   'xw': #{'min-width: 1024px'},
+   'lg': #{'min-width: 1280px'},
+   'xl': #{'min-width: 1366px'},
+);
+
+$xs-and-up: map-get($mq, 'xs');
+$sm-and-up: map-get($mq, 'sm');
+$md-and-up: map-get($mq, 'md');
+$wd-and-up: map-get($mq, 'wd');
+$xw-and-up: map-get($mq, 'xw');
+$lg-and-up: map-get($mq, 'lg');
+$xl-and-up: map-get($mq, 'xl');
+
+$browser-min-size: 350px !default;
+$browser-max-size: 1440px !default;
+$font-base: 16px !default;
+$icon-path: '/' !default;
+
+$grid-cols: 12 !default;

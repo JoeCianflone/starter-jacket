@@ -1,0 +1,9 @@
+@use "sass:math";
+
+@function line-height($pxFont) {
+   @return math.div($pxFont, $font-base);
+}
+
+@function rem($pxFont) {
+   @return math.div($pxFont, $font-base) * 1rem;
+}
